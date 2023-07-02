@@ -1,12 +1,13 @@
 import requests
 import pandas as pd
+import spacy
 
-print("running")
+print("running...")
 
 url_a = "https://ratethelandlord.org/api/get-reviews?page="
 url_b = "&sort=new&state=&country&city&zip&search&limit="
 
-df = pd.DataFrame(columns = ["Landlord", "City", "State", "Zip", "Country", "Review", "Repair", "Health", "Stability", "Privacy", "Respect"])
+df = pd.DataFrame(columns = ["Landlord", "City", "State", "Zip", "Country", "Review", "Repair", "Health", "Stability", "Privacy", "Respect", "Class"])
 
 for i in range(1, 350):
     try:
@@ -28,3 +29,5 @@ for i in range(1, 350):
         print("error")
 
 df.to_csv("./leads.csv")
+
+print("scrape complete")
